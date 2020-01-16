@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest>
+    <identifier>Escape the Rimworld - Wastelander Branch - Combat Extended Edition</identifier>
+    <version>1.06</version>
+    <loadAfter>
+        <li>Core</li>
+        <li>HugsLib</li>
+        <li>JecsTools</li>
+		<li>CombatExtended</li>
+    </loadAfter>
+	<showCrossPromotions>false</showCrossPromotions>
+    <manifestUri>https://raw.githubusercontent.com/zhrocks11/EscapeTheRimworldWastelandCE/master/Escape%20the%20Rimworld%20-%20Wastelander%20Branch%20-%20Combat%20Extended%20Version/About/Manifest.xml</manifestUri>
+    <downloadUri>https://github.com/zhrocks11/EscapeTheRimworldWastelandCE/releases/latest</downloadUri>
+</Manifest>

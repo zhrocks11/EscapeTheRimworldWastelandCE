@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- ========== Tools ========== -->
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_Revolver" or defName="Gun_Wastelander_Autopistol" or defName="Gun_Wastelander_MachinePistol"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>grip</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>2</power>
+          <cooldownTime>1.54</cooldownTime>
+          <chanceFactor>1.5</chanceFactor>
+          <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>muzzle</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>2</power>
+          <cooldownTime>1.54</cooldownTime>
+          <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_PumpShotgun" or defName="Gun_Wastelander_ChainShotgun" or defName="Gun_Wastelander_BoltActionRifle" or defName="Gun_Wastelander_AssaultRifle" or defName="Gun_Wastelander_SniperRifle" or defName="Gun_Wastelander_HeavySMG" or defName="Gun_Wastelander_LMG"]/tools</xpath>
+    <value>
+      <tools>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>8</power>
+          <cooldownTime>1.55</cooldownTime>
+          <chanceFactor>1.5</chanceFactor>
+          <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>5</power>
+          <cooldownTime>2.02</cooldownTime>
+          <armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <label>muzzle</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>8</power>
+          <cooldownTime>1.55</cooldownTime>
+          <armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+          <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+        </li>
+      </tools>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Revolver ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_Revolver</defName>
+    <statBases>
+      <Mass>1.39</Mass>
+      <RangedWeapon_Cooldown>0.48</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.6</SightsEfficiency>
+      <ShotSpread>0.20</ShotSpread>
+      <SwayFactor>1.30</SwayFactor>
+      <Bulk>2.35</Bulk>
+      <WorkToMake>5000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+	  <WoodLog>5</WoodLog>
+	  <Cloth>5</Cloth>
+    </costList>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_44Magnum_FMJ</defaultProjectile>
+      <warmupTime>0.6</warmupTime>
+      <range>10</range>
+      <soundCast>Shot_Revolver</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>4</magazineSize>
+      <reloadTime>3.0</reloadTime>
+      <ammoSet>AmmoSet_44Magnum</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_Sidearm</li>
+      <li>CE_AI_Pistol</li>
+      <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>Gunsmithing</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_Revolver"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.00,1.00</DrawSize>
+        <DrawOffset>0.0,0.0</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Autopistol ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_Autopistol</defName>
+    <statBases>
+      <Mass>1.10</Mass>
+      <RangedWeapon_Cooldown>0.40</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.6</SightsEfficiency>
+      <ShotSpread>0.19</ShotSpread>
+      <SwayFactor>1.10</SwayFactor>
+      <Bulk>2.05</Bulk>
+      <WorkToMake>5000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>35</Steel>
+	  <WoodLog>5</WoodLog>
+      <Cloth>5</Cloth>
+    </costList>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_45ACP_FMJ</defaultProjectile>
+      <warmupTime>0.7</warmupTime>
+      <range>10</range>
+      <soundCast>Shot_Autopistol</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>5</magazineSize>
+      <reloadTime>3</reloadTime>
+      <ammoSet>AmmoSet_45ACP</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_Sidearm</li>
+      <li>CE_AI_Pistol</li>
+      <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_Autopistol"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>0.93,0.93</DrawSize>
+        <DrawOffset>0.0,0.0</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Pump Shotgun ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_PumpShotgun</defName>
+    <statBases>
+      <Mass>2.79</Mass>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+      <ShotSpread>0.18</ShotSpread>
+      <SwayFactor>1.26</SwayFactor>
+      <Bulk>8.5</Bulk>
+      <SightsEfficiency>0.8</SightsEfficiency>
+      <WorkToMake>7500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>30</Steel>
+	  <WoodLog>10</WoodLog>
+	  <Cloth>5</Cloth>
+    </costList>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_12Gauge_Buck</defaultProjectile>
+      <warmupTime>0.7</warmupTime>
+      <range>16</range>
+      <soundCast>Shot_Shotgun</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>4</magazineSize>
+      <reloadOneAtATime>true</reloadOneAtATime>
+      <reloadTime>0.95</reloadTime>
+      <ammoSet>AmmoSet_12Gauge</ammoSet>
+    </AmmoUser>
+    <FireModes />
+    <weaponTags>
+      <li>CE_AI_AssaultWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>Gunsmithing</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_PumpShotgun"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.03,1.25</DrawSize>
+        <DrawOffset>0.05,0.0</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Chain Shotgun ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_ChainShotgun</defName>
+    <statBases>
+      <Mass>3.00</Mass>
+      <RangedWeapon_Cooldown>0.44</RangedWeapon_Cooldown>
+      <ShotSpread>0.19</ShotSpread>
+      <SwayFactor>1.36</SwayFactor>
+      <Bulk>6.5</Bulk>
+      <SightsEfficiency>0.8</SightsEfficiency>
+      <WorkToMake>12500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>45</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+	  <WoodLog>20</WoodLog>
+	  <Cloth>10</Cloth>
+    </costList>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_12Gauge_Buck</defaultProjectile>
+      <warmupTime>0.8</warmupTime>
+      <range>15</range>
+      <soundCast>Shot_Shotgun</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>6</magazineSize>
+      <reloadTime>3.5</reloadTime>
+      <ammoSet>AmmoSet_12Gauge</ammoSet>
+    </AmmoUser>
+    <FireModes />
+    <weaponTags>
+      <li>CE_AI_AssaultWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>GasOperation</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_ChainShotgun"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.04,1.23</DrawSize>
+        <DrawOffset>0.05,-0.05</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Bolt-action rifle ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_BoltActionRifle</defName>
+    <statBases>
+      <Mass>4.05</Mass>
+      <RangedWeapon_Cooldown>1.20</RangedWeapon_Cooldown>
+      <SightsEfficiency>1</SightsEfficiency>
+      <ShotSpread>0.06</ShotSpread>
+      <SwayFactor>1.58</SwayFactor>
+      <Bulk>10.60</Bulk>
+      <WorkToMake>9500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+	  <WoodLog>30</WoodLog>
+	  <Cloth>20</Cloth>
+    </costList>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_303British_FMJ</defaultProjectile>
+      <warmupTime>1.2</warmupTime>
+      <range>45</range>
+      <soundCast>Shot_BoltActionRifle</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>8</magazineSize>
+      <reloadTime>4.0</reloadTime>
+      <ammoSet>AmmoSet_303British</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_AI_Rifle</li>
+    </weaponTags>
+    <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    <AllowWithRunAndGun>false</AllowWithRunAndGun>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_BoltActionRifle"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.34,1.34</DrawSize>
+        <DrawOffset>0.12,-0.10</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Assault rifle ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_AssaultRifle</defName>
+    <statBases>
+      <Mass>3.20</Mass>
+      <RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.9</SightsEfficiency>
+      <ShotSpread>0.13</ShotSpread>
+      <SwayFactor>1.20</SwayFactor>
+      <Bulk>9.75</Bulk>
+      <WorkToMake>15000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+	  <Cloth>25</Cloth>
+    </costList>
+    <Properties>
+      <recoilAmount>1.53</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_556x45mmNATO_FMJ</defaultProjectile>
+      <warmupTime>1.2</warmupTime>
+      <range>47</range>
+      <burstShotCount>4</burstShotCount>
+      <ticksBetweenBurstShots>3.6</ticksBetweenBurstShots>
+      <soundCast>Shot_AssaultRifle</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>20</magazineSize>
+      <reloadTime>4</reloadTime>
+      <ammoSet>AmmoSet_556x45mmNATO</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aimedBurstShotCount>3</aimedBurstShotCount>
+      <aiUseBurstMode>TRUE</aiUseBurstMode>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_AI_Rifle</li>
+    </weaponTags>
+    <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_AssaultRifle"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.16,1.25</DrawSize>
+        <DrawOffset>0.05,-0.07</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Sniper rifle ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_SniperRifle</defName>
+    <statBases>
+      <Mass>6.95</Mass>
+      <RangedWeapon_Cooldown>1.50</RangedWeapon_Cooldown>
+      <SightsEfficiency>1.7</SightsEfficiency>
+      <ShotSpread>0.20</ShotSpread>
+      <SwayFactor>1.35</SwayFactor>
+      <Bulk>10.65</Bulk>
+      <WorkToMake>17000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>90</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+	  <Cloth>40</Cloth>
+    </costList>
+    <Properties>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+      <warmupTime>2.0</warmupTime>
+      <range>69</range>
+      <soundCast>Shot_SniperRifle</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>4</magazineSize>
+      <reloadTime>3.8</reloadTime>
+      <ammoSet>AmmoSet_762x51mmNATO</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_AI_Rifle</li>
+    </weaponTags>
+    <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    <AllowWithRunAndGun>false</AllowWithRunAndGun>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_SniperRifle"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.25,1.45</DrawSize>
+        <DrawOffset>0.15,-0.05</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Machine pistol ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_MachinePistol</defName>
+    <statBases>
+      <Mass>2.56</Mass>
+      <RangedWeapon_Cooldown>0.46</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.6</SightsEfficiency>
+      <ShotSpread>0.21</ShotSpread>
+      <SwayFactor>1.93</SwayFactor>
+      <Bulk>2.95</Bulk>
+      <WorkToMake>9500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>40</Steel>
+	  <WoodLog>10</WoodLog>
+	  <Cloth>10</Cloth>
+    </costList>
+    <Properties>
+      <recoilAmount>1.93</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_45ACP_FMJ</defaultProjectile>
+      <warmupTime>0.8</warmupTime>
+      <range>12</range>
+      <burstShotCount>5</burstShotCount>
+      <ticksBetweenBurstShots>3.3</ticksBetweenBurstShots>
+      <soundCast>Shot_MachinePistol</soundCast>
+      <soundCastTail>GunTail_Light</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>22</magazineSize>
+      <reloadTime>4</reloadTime>
+      <ammoSet>AmmoSet_45ACP</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aimedBurstShotCount>3</aimedBurstShotCount>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_SMG</li>
+      <li>CE_AI_AssaultWeapon</li>
+      <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_MachinePistol"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>0.84,0.84</DrawSize>
+        <DrawOffset>-0.10,-0.07</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander Heavy SMG ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_HeavySMG</defName>
+    <statBases>
+      <Mass>2.50</Mass>
+      <RangedWeapon_Cooldown>0.57</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.95</SightsEfficiency>
+      <ShotSpread>0.19</ShotSpread>
+      <SwayFactor>1.05</SwayFactor>
+      <Bulk>4.35</Bulk>
+      <WorkToMake>16500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>45</Steel>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+	  <Cloth>10</Cloth>
+    </costList>
+    <Properties>
+      <recoilAmount>2.18</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_45ACP_FMJ</defaultProjectile>
+      <warmupTime>0.9</warmupTime>
+      <range>14</range>
+      <burstShotCount>4</burstShotCount>
+      <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+      <soundCast>Shot_HeavySMG</soundCast>
+      <soundCastTail>GunTail_Heavy</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>18</magazineSize>
+      <reloadTime>3.7</reloadTime>
+      <ammoSet>AmmoSet_45ACP</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aimedBurstShotCount>3</aimedBurstShotCount>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_SMG</li>
+      <li>CE_AI_AssaultWeapon</li>
+    </weaponTags>
+    <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_HeavySMG"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>0.85,0.85</DrawSize>
+        <DrawOffset>0.00,-0.03</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- ========== Wastelander LMG ========== -->
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>Gun_Wastelander_LMG</defName>
+    <statBases>
+      <Mass>9.12</Mass>
+      <RangedWeapon_Cooldown>0.76</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.9</SightsEfficiency>
+      <ShotSpread>0.20</ShotSpread>
+      <SwayFactor>1.73</SwayFactor>
+      <Bulk>14.7</Bulk>
+      <WorkToMake>20000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>55</Steel>
+	  <ComponentIndustrial>2</ComponentIndustrial>
+	  <WoodLog>5</WoodLog>
+	  <Cloth>10</Cloth>
+    </costList>
+    <Properties>
+      <recoilAmount>1.62</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_762x54mmR_FMJ</defaultProjectile>
+      <warmupTime>1.7</warmupTime>
+      <range>43</range>
+      <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+      <burstShotCount>8</burstShotCount>
+      <soundCast>Shot_Minigun</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <recoilPattern>Mounted</recoilPattern>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>36</magazineSize>
+      <reloadTime>3.9</reloadTime>
+      <ammoSet>AmmoSet_762x54mmR</ammoSet>
+    </AmmoUser>
+    <FireModes>
+      <aimedBurstShotCount>5</aimedBurstShotCount>
+      <aiUseBurstMode>FALSE</aiUseBurstMode>
+      <aiAimMode>SuppressFire</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>CE_MachineGun</li>
+      <li>CE_AI_Suppressive</li>
+    </weaponTags>
+    <researchPrerequisite>GasOperation</researchPrerequisite>
+    <AllowWithRunAndGun>false</AllowWithRunAndGun>
+  </Operation>
+
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_Wastelander_LMG"]</xpath>
+    <value>
+      <li Class="CombatExtended.GunDrawExtension">
+        <DrawSize>1.35,1.18</DrawSize>
+        <DrawOffset>0.13,-0.03</DrawOffset>
+      </li>
+    </value>
+  </Operation>
+
+</Patch>
+
